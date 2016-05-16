@@ -5,6 +5,11 @@ var nodemon = require('gulp-nodemon');
 
 var jsFiles = ['*.js', 'src/**/*.js'];
 
+var babel = require('gulp-babel');
+var plumber = require('gulp-plumber');
+var es6Path = 'src/es6/*.js';
+var compilePath = 'src/es6/compiled';
+
 gulp.task('style', function () {
     return gulp.src(jsFiles)
         .pipe(jshint())
@@ -55,4 +60,15 @@ gulp.task('serve', ['style', 'inject'], function () {
         .on('restart', function (ev) {
             console.log('Restarting....');
         });
+});
+
+gulp.task('babel', function () {
+    // These options are what should be present in the .babelrc file
+    // if the .babelrc file didn't cause gulp-babel to crash for some reason
+    var babelOptions = {presets: ['es2015']}; 
+    
+    gulp.src([es6Path])
+        .pipe(plumber())
+        .pipe(babel(babelOptions))
+        .pipe(gulp.dest(compilePath + '/babel'));
 });
