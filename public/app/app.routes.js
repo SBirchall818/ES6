@@ -1,8 +1,8 @@
 (function() {
     angular.module('app')
         .config(function($routeProvider, $locationProvider) {
-            $routeProvider.when('/Syntax', {
-                templateUrl: 'letConstBlock.html'
+            $routeProvider.when('/let', {
+                templateUrl: 'let.html'
             });
             
             $locationProvider.html5Mode(true);

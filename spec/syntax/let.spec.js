@@ -1,5 +1,5 @@
 (function() {
-    describe('letConstBlockController', function() {
+    describe('letController', function() {
         
         var $scope;
         
@@ -7,7 +7,7 @@
         
         beforeEach(inject(function(_$controller_, _$rootScope_) {
             $scope = {};
-            _$controller_('letConstBlockController', { 
+            _$controller_('letController', { 
                 $scope: $scope,
             });
 

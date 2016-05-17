@@ -2,7 +2,7 @@
     'use strict';
     
     angular.module('app')
-        .controller('letConstBlockController', function($scope) {
+        .controller('letController', function($scope) {
             $scope.output = [];
             
             $scope.clear = () => {
