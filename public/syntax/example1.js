@@ -3,15 +3,26 @@
 (function () {
     'use strict';
 
-    for (var i = 0; i < 2; i++) {
-        console.log('i = ' + i);
-    }
-
-    var square = function square(n) {
-        return n * n;
-    };
-
     angular.module('app').controller('letConstBlockController', function ($scope) {
         $scope.output = ['sample line 1', 'sample line 2'];
+
+        $scope.clear = function () {
+            $scope.output = [];
+        };
+
+        $scope.run = exampleCode;
+
+        function exampleCode() {
+
+            for (var _i = 0; _i < 2; _i++) {
+                $scope.output.push('i = ' + _i);
+            }
+
+            try {
+                $scope.output.push('after for loop\ni = ' + i);
+            } catch (exception) {
+                $scope.output.push(exception.message);
+            }
+        }
     });
 })();
