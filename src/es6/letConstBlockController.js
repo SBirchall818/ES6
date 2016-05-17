@@ -3,10 +3,7 @@
     
     angular.module('app')
         .controller('letConstBlockController', function($scope) {
-            $scope.output = [
-                'sample line 1',
-                'sample line 2'
-            ];
+            $scope.output = [];
             
             $scope.clear = () => {
                 $scope.output = [];

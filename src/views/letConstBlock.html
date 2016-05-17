@@ -1,0 +1,15 @@
+<div ng-controller="letConstBlockController">   
+                <div style="BORDER: #cccccc 1px dashed; PADDING: 5px; WIDTH: 95%; BACKGROUND: #f0f0f0; COLOR: #000000; FONT-SIZE: 12px; OVERFLOW: auto; height:auto"><pre>for (let i = 0; i &lt; 2; i++) {
+    $scope.output.push(&#39;i = &#39; + i);
+}
+
+try {
+    $scope.output.push(&#39;after for loop\ni = &#39; + i);                    
+} catch (exception) {
+    $scope.output.push(exception.message);
+}</pre></div>           
+    <button ng-click="run()">Run</button>
+    <button ng-click="clear()">Clear</button>                
+    <div ng-repeat="line in output track by $index" >{{line}}</div>
+    
+</div>

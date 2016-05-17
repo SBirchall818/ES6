@@ -9,33 +9,25 @@
         <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="/lib/angular/angular.js"></script>
         <script src="/lib/angular-mocks/angular-mocks.js"></script>
+        <script src="/lib/angular-route/angular-route.js"></script>
         <!-- endbower -->
         
         <!--inject:js-->
         <script src="/app/app.js"></script>
-        <script src="/syntax/example1.js"></script>
+        <script src="/app/app.routes.js"></script>
+        <script src="/syntax/letConstBlockController.js"></script>
         <script src="/widget/widget.directive.js"></script>
         <!--endinject-->
+        
+        <base href="/">
     </head>
     <body>
         <h1>ES6 Experiments </h1>
         <div ng-app="app">
             <widget></widget>
-            <div ng-controller="letConstBlockController">   
-                <div style="BORDER: #cccccc 1px dashed; PADDING: 5px; WIDTH: 95%; BACKGROUND: #f0f0f0; COLOR: #000000; FONT-SIZE: 12px; OVERFLOW: auto; height:auto"><pre>for (let i = 0; i &lt; 2; i++) {
-    $scope.output.push(&#39;i = &#39; + i);
-}
-
-try {
-    $scope.output.push(&#39;after for loop\ni = &#39; + i);                    
-} catch (exception) {
-    $scope.output.push(exception.message);
-}</pre></div>           
-                <button ng-click="run()">Run</button>
-                <button ng-click="clear()">Clear</button>                
-                <div ng-repeat="line in output" >{{line}}</div>
-                
-            </div>
+            <a ng-href="/Syntax">SYNTAX</a>
+            <div ng-view></div>
+            
         </div>
     </body>
 </html>
