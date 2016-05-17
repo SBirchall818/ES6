@@ -73,3 +73,7 @@ gulp.task('babel', function () {
         .pipe(babel(babelOptions))
         .pipe(gulp.dest(compilePath + '/syntax'));
 });
+
+// TODO: Clean out babel output directory task - make babel preprossessing depend on this task
+
+// TODO: Create a gulp task for running babel before running karma tests
