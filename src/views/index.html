@@ -12,6 +12,8 @@
         <!-- endbower -->
         
         <!--inject:js-->
+        <script src="/app/app.js"></script>
+        <script src="/syntax/example1.js"></script>
         <script src="/widget/widget.directive.js"></script>
         <!--endinject-->
     </head>
@@ -19,8 +21,11 @@
         <h1>Even Newer title </h1>
         <div ng-app="app">
             <widget></widget>
-            <input ng-model="value" type="text" />
-            {{value}}
+            <div ng-controller="letConstBlockController">
+                <ul>
+                    <li ng-repeat="line in output" >{{line}}</li>
+                </ul>
+            </div>
         </div>
     </body>
 </html>

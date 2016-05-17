@@ -8,7 +8,7 @@ var jsFiles = ['*.js', 'src/**/*.js'];
 var babel = require('gulp-babel');
 var plumber = require('gulp-plumber');
 var es6Path = 'src/es6/*.js';
-var compilePath = 'src/es6/compiled';
+var compilePath = 'public/';
 
 gulp.task('style', function () {
     return gulp.src(jsFiles)
@@ -24,7 +24,8 @@ gulp.task('inject', function () {
     var inject = require('gulp-inject');
 
     var injectSrc = gulp.src(['./public/css/*.css',
-                              './public/js/*.js',
+                              './public/app/*.js',
+                              './public/syntax/*.js',
                               './public/widget/*.js'], {
         read: false
     });
@@ -46,7 +47,7 @@ gulp.task('inject', function () {
 
 });
 
-gulp.task('serve', ['style', 'inject'], function () {
+gulp.task('serve', ['babel', 'style', 'inject'], function () {
     var options = {
         script: 'app.js',
         delayTime: 1,
@@ -70,5 +71,5 @@ gulp.task('babel', function () {
     gulp.src([es6Path])
         .pipe(plumber())
         .pipe(babel(babelOptions))
-        .pipe(gulp.dest(compilePath + '/babel'));
+        .pipe(gulp.dest(compilePath + '/syntax'));
 });
